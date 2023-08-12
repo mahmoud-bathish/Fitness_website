@@ -4,7 +4,6 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Fitness</title>
-      <link rel="stylesheet" href="./index.css">
       <link rel="icon" href="https://cdn.pixabay.com/photo/2016/03/25/02/13/abstract-1278077_960_720.jpg">
     <link rel="stylesheet" href="./Style/index.css">
     <!-- Icons -->
@@ -100,13 +99,13 @@
                     $result = mysqli_query($con,$query);
                     if(mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_assoc($result)){
-                            echo "  <div class='slide' style='background-color: rgba(255,255,255,0.6);box-shadow: 0 5px 20px 0.1px rgba(0,0,0,0.01);
-                            backdrop-filter: blur(15px);border-radius:10px;opacity:0;width:100%;height:100%;position:absolute;display:flex;align-items:center;justify-content:center;'>";
-                            echo "    <div style='display:flex;justify-content:center;flex-direction:column;align-items:center;'>";
+                            echo "  <div class='slide' style='background-color: rgba(255,255,255,0.6);box-shadow: 0 5px 20px 0.1px rgba(0,0,0,0.01);height:100%;";
+                            echo"    backdrop-filter: blur(15px);border-radius:10px;opacity:0;width:100%;height:100%;position:absolute;display:flex;align-items:center;justify-content:center;'>";
+                            echo "    <div style='display:flex;justify-content:center;flex-direction:column;align-items:center;width:100%;'>";
                             echo "      <div style='width:100%;display:flex;justify-content:center;margin-bottom:20px;'>";
                             echo "      <img src='" .$row["pictureUrl"]. "'  style='width:100px;height:100px;border-radius:50%;'>";
                             echo "      </div>";
-                            echo "      <div style='text-align:center;width:80%;font-size:22px;line-height:1.4;'>" . $row["comment"] . "</div>";
+                            echo "      <div style='height:50%;;white-space: normal;text-align:center;width:80%;font-size:22px;line-height:1.4;'>" . $row["comment"] . "</div>";
                             echo "    </div>";
                             echo "  </div>";
                         }
