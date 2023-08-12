@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../home/Style/index.css">
+    <style>
+      body{
+          margin: 0;
+          padding: 0;
+          background: linear-gradient(100deg,#111715,#F78604 );
+          height: 100vh;
+          overflow: hidden;
+          }
+      </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+          <a href="" class="logo">Fit<span style="color:#F78604">ness</span></a>
+          <div class="links">
+              <ul>
+                  <li><a href="./home.php" class="nav-link">Home</a></li>
+                  <li><a href="#Programs" class="nav-link">Programs</a></li>
+                  <li><a href="./BMICalculator.php" class="nav-link">BMICalculator</a></li>
+              </ul>
+              <button href="" class="btn">Login</button>
+          </div>
+      </nav>
+  </header>
+    <div class="center">
+      <h1>Sign Up</h1>
+      <form method="post" action="checkLoging.php">
+        <div class="txt_field">
+          <input type="text" required>
+          <span></span>
+          <label>Email</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" required>
+          <span></span>
+          <label>Password</label>
+        </div>
+        <input type="submit" value="SignUp" style="background-color: #F78604;">
+        <div class="signup_link">
+          Member already? <a href="./login.html" style="color: #F78604;">Login</a>
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>
