@@ -1,0 +1,49 @@
+body{
+    font-family: "Inter","Sans-serif";
+    background-color: black;
+}
+.parent .container{
+    width:90vw;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.container .content{
+    width: 50%;
+    display:flex;
+    gap:30px;
+    flex-direction:column;
+}
+.inp{
+    padding:15px;
+}
+.calculate-btn{
+    padding:20px;
+    background-color: #F78604;
+    font-size:17px;
+    font-weight: bold;
+    letter-spacing:2;
+}
+.inp:focus{
+    border-color: #F78604;
+    border:1px solid #F78604;
+}
+.calculate-container{
+    margin-top:20px;
+}
+.inp::placeholder{
+    color:white;
+}
+.inp{
+    background:black;
+    outline:none;
+    border:1px solid transparent;
+    color:white;
+}
+.parent{
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+}

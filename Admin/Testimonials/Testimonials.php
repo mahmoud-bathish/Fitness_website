@@ -1,104 +1,24 @@
+<?php
+session_start();
+if ($_SESSION['isAdmin'] != 1) {
+header("location:../../Authentication/Login.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./AdminPageStyle/style.css">
+    <link rel="stylesheet" href="../Style/index.css">
     <title>Admin Page</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            display: flex;
-        }
-
-        .side-bar{
-            width: calc(100% / 7);
-            height: 100vh;
-            background:#eee;
-        }
-
-        .content {
-            width: calc(600% / 7);
-            height: 100vh;
-        }
-
-        .side-bar .admin-img{
-            height: 15%;
-            width: 100%;
-        }
-
-        .side-bar .admin-navigation {
-            height: 60%;
-            width: 100%;
-        }
-
-        .side-bar .admin-logout {
-            height: 20%;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .side-bar .admin-logout .logout-link a{
-            font-size:20px;
-            text-decoration:none;
-            font-weight:bold;
-            color: black;
-        }
-
-        .admin-img .image-container img{
-            width: 100px;
-            height: 100px;
-            border-radius: 50px;
-        }
-
-        .admin-img .image-container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .admin-navigation{
-            display:flex;
-            justify-content:center;
-            align-items:center;
-        }
-
-        .admin-navigation .choices {
-            height:100%;
-            width: 100%;
-            display:flex;
-            align-items:center;
-            justify-content:start;
-            flex-direction:column;
-        }
-
-        .admin-navigation .choices div{
-            width:100%;
-            text-align:center;
-            position:relative;
-        }
-        .admin-navigation .choices div.active{
-            background: #FFF;
-        }
-        .admin-navigation .choices div a {
-            padding:15px 0;
-            text-decoration:none;
-            color:black;
-            width:100%;
-            height:100%;
-            display:block;
+        body{
+            font-family:;
         }
         table tr th{
             padding:15px;
-            border-bottom:1px solid #eee
+            border-bottom:1px solid #eee;
+            font-size:19px;
         }
         table tr td {
             padding:15px;
@@ -108,16 +28,12 @@
         table{
             border-spacing:0px;
         }
-        .logo {
-            transition: 0.3s;
-            font-family: "Arbil Fatface",cursive;
-            font-size: 2rem;
-            letter-spacing: 1px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
     </style>
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
@@ -134,30 +50,33 @@
                 </div>
                 <div class="admin-navigation">
                     <div class="choices">
-                    <div class="programs-choice">
-                            <a href="../Programs/programs.php">Programs</a>
+                    <div>
+                            <a href="../Programs/Programs.php">Programs</a>
                         </div>
-                        <div class="articles-choice">
-                            <a href="../Articles/articles.php">Articles</a>
+                        <div>
+                            <a href="../Articles/Articles.php">Articles</a>
                         </div>
-                        <div class="trainees-choice">
-                            <a href="../Trainees/trainees.php">Trainees</a>
+                        <div>
+                            <a href="../Users/Users.php">Users</a>
                         </div>
-                        <div class="users-choice">
-                            <a href="../Users/users.php">Users</a>
-                        </div>
-                        <div class="testimonials-choice active">
+                        <div class="active">
                             <a href="./Testimonials.php">Testimonials</a>
                         </div>
-                        <div class="payment-choice ">
-                            <a href="../Payment/payment.php">Payment</a>
+                        <div>
+                            <a href="../NewsLetter/NewsLetter.php">News Letter Emails</a>
                         </div>
-                        <div class="logout-choice"><a href="logout.php">Logout</a></div>
+                        <div >
+                            <a href="../Contact/contact.php">Contact Emails</a>
+                        </div>
+                        <div class="logout-choice"><a href="../../Authentication/Logout.php">Logout</a></div>
                     </div>
                 </div>
             </div>
             <div class="content">
-                <div class="table" style="display:flex; justify-content:center;flex-direction:column;">
+            <div class='head'>
+                <h1>Testimonials</h1>
+            </div>
+                <div class="table" style="display:flex; justify-content:center;flex-direction:column;padding:20px;">
                     <table width="100%">
                     <tr>
                         <th>ID</th>
@@ -190,7 +109,7 @@ require_once '../../Connection/connection.php';
                     ?>
                     </table>
                     <div style='width:100%;text-align:center;height:70px;display:flex;align-items:center;justify-content:center;'>
-                        <a href="AddTestimonial.html" style='font-size:17px;border-radius:7px;text-decoration:none;width:100px;padding:10px;color:white;background:red;'>Add</a>
+                        <a href="AddTestimonialForm.php" style='font-size:17px;border-radius:7px;text-decoration:none;width:100px;padding:10px;color:white;background:red;'>Add</a>
                     </div>
                 </div>
             </div>

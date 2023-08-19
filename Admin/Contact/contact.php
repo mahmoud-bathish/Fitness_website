@@ -10,7 +10,7 @@ header("location:../../Authentication/Login.html");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Style/index.css">
-    <title>Admin Page</title>
+    <title>Contact</title>
     <style>
         table tr th{
             padding:15px;
@@ -52,7 +52,7 @@ header("location:../../Authentication/Login.html");
                         <div>
                             <a href="../Articles/Articles.php">Articles</a>
                         </div>
-                        <div class="active">
+                        <div>
                             <a href="./Users.php">Users</a>
                         </div>
                         <div>
@@ -61,8 +61,8 @@ header("location:../../Authentication/Login.html");
                         <div>
                             <a href="../NewsLetter/NewsLetter.php">News Letter Emails</a>
                         </div>
-                        <div >
-                            <a href="../Contact/contact.php">Contact Emails</a>
+                        <div class="active">
+                            <a href="./contact.php">Contact Emails</a>
                         </div>
                         <div class="logout-choice"><a href="../../Authentication/Logout.php">Logout</a></div>
                     </div>
@@ -70,35 +70,35 @@ header("location:../../Authentication/Login.html");
             </div>
             <div class="content">
             <div class='head'>
-                <h1>Users</h1>
+                <h1>Contact Emails</h1>
             </div>
                 <div class="table" style="display:flex; justify-content:center;">
                     <table >
                     <tr>
                         <th>ID</th>
-                        <th>User Name</th>
+                        <th>Name</th>
                         <th>Email</th>
-                        <th>Delete</th>
+                        <th>Message</th>
                     </tr>
                     <?php
                         require_once '../../Connection/connection.php';
                         
                         if (isset($_GET['Id'])) {
                             $deleteId = $_GET['Id'];
-                            $deleteQuery = "DELETE FROM Users WHERE UserId = '$deleteId'";
+                            $deleteQuery = "DELETE FROM contacts WHERE Id = '$deleteId'";
                             mysqli_query($con, $deleteQuery);
                         }
 
-                        $query = "SELECT * FROM users";
+                        $query = "SELECT * FROM contacts";
 
                         $result = mysqli_query($con,$query);
                         if(mysqli_num_rows($result) > 0){
                             while($row = mysqli_fetch_assoc($result)){
                                 echo "<tr>";
-                                echo "<td>" . $row["UserId"] . "</td>";
-                                echo "<td>" . $row["UserName"] . "</td>";
+                                echo "<td>" . $row["Id"] . "</td>";
+                                echo "<td>" . $row["Name"] . "</td>";
                                 echo "<td>" . $row["Email"] . "</td>";
-                                echo '<td><a style="text-decoration:none;color:white;background:red;border-radius:5px;padding:6px;" href="?Id=' . $row["UserId"] . '">Delete</a></td>';
+                                echo "<td>" . $row["Message"] . "</td>";
                                 echo "</tr>";
                             }
                         }

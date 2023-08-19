@@ -1,9 +1,16 @@
+<?php
+     session_start();
+
+     if ($_SESSION['isLoggedIn'] != 1) {
+     header("location:../Authentication/Login.html");
+    }
+?>]
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Program Days</title>
     <style>
         body{
             margin:0;
@@ -111,25 +118,12 @@
                     $id = $_GET["Id"];
                     $day = $_GET["Day"];
 
-                    $query = "SELECT
-                    pd.Id AS ProgramDetailsId,
-                    p.ProgramName,
-                    p.Description AS ProgramDescription,
-                    p.Price,
-                    w.Name AS WorkoutName,
-                    w.GifUrl,
-                    w.Duration,
-                    w.Day
-                    FROM
-                        ProgramDetails pd
-                    JOIN
-                        Program p ON pd.ProgramId = p.ProgramId
-                    JOIN
-                        Workout w ON pd.WorkoutId = w.WorkoutId
-                    WHERE
-                    pd.Id = '$id'
-                    AND  w.Day = '$day';
-                    ";
+                    $query = "SELECT * FROM workout 
+                WHERE
+                    ProgramId = '$id'
+                AND  
+                workout.Day = '$day'";
+                
 
                     $result = mysqli_query($con,$query);
                     if(mysqli_num_rows($result) > 0){
@@ -147,12 +141,12 @@
                   
                         }
                     }
-                ?>
-        </div>
-    </div>
-    <div class="finish-btn">
-        <a href="Program.php">Finish</a>
-    </div>
+                    echo"    </div>";
+                    echo "</div>";
+                    echo "<div class='finish-btn'>";
+                        echo "    <a href='Program.php?ProgramId=".$id."'>Finish</a>";
+                        echo "</div>";
+                        ?>
 
     <div id="popupContainer" class="popup-container" style="display:none;justify-content:center;align-items:center;width:100%;z-index:10;background-color: rgba(0, 0, 0, 0.5);height:100vh;position:absolute;">
         <div class="popup-content" style='background-color: #F78604;color:white;border-radius:10px;width:40%;height:80%;'>

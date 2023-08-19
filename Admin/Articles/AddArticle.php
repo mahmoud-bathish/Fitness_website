@@ -1,3 +1,9 @@
+<?php
+session_start();
+if ($_SESSION['isAdmin'] != 1) {
+header("location:../../Authentication/Login.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +16,6 @@
             display:flex;
             justify-content:center;
             align-items:center;
-            /* flex-direction:column; */
         }
         .formGroup{
             width:50%;
@@ -33,8 +38,8 @@
 <body>
     <div class="container">
         <div class="formGroup">
-            <h1 style='text-align:center;'>Edit the Article</h1>
-            <form action='EditArticleInDB.php' method='POST'>
+            <h1 style='text-align:center;'>Add Article</h1>
+            <form action='AddArticleInDB.php' method='post'>
                 <div class='top' style='display:flex;width:100%;flex-direction:column;'>
                     <div class='title' style='width:100%;'>
                         <input type='text' style='width:100%;' id='titleInput' placeholder='Title' name='Title'>
@@ -50,8 +55,8 @@
                     <textarea name='Content'  id='textInput' placeholder='Content' ></textarea>
                 </div>
                 <div class='buttons' style='display:flex;align-items:center;justify-content:start;gap:3%;'>
-                    <a href='articles.php' style='cursor:pointer;text-align:center;font-size:19px;text-decoration:none;color:white;background:red;width:70px;padding:7px;border-radius:7px;'>Cancel</a>
-                    <button type='submit' style=' cursor:pointer;text-align:center;font-size:19px;text-decoration:none;color:white;background:#F78604;width:80px;border:none;padding:7px;border-radius:7px;' >Submit</button>
+                    <a href='Articles.php' style='cursor:pointer;text-align:center;font-size:19px;text-decoration:none;color:white;background:red;width:70px;padding:7px;border-radius:7px;'>Cancel</a>
+                    <input type='submit' style=' cursor:pointer;text-align:center;font-size:19px;text-decoration:none;color:white;background:#F78604;width:80px;border:none;padding:7px;border-radius:7px;' value="Submit" />
                 </div>
             </form> 
         </div>

@@ -1,3 +1,9 @@
+<?php
+session_start();
+if ($_SESSION['isAdmin'] != 1) {
+header("location:../../Authentication/Login.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,7 +48,7 @@
                 $result = mysqli_query($con,$query);
                 if(mysqli_num_rows($result) > 0){
                     $row = mysqli_fetch_assoc($result);
-                    echo "<form action='EditArticleInDB.php?articleID=".$row["articleID"]."' method='POST'>";
+                    echo "<form action='EditArticleInDB.php?articleID=".$row["articleID"]."' method='post'>";
                     echo "    <div class='top' style='display:flex;width:100%;flex-direction:column;''>";
                     echo "        <div class='title' style='width:100%;'>";
                     echo "            <input type='text' style='width:100%;' id='titleInput' placeholder='Title' name='Title'>";
@@ -58,8 +64,8 @@
                     echo "        <textarea name='Content'  id='textInput' placeholder='Content' ></textarea>";
                     echo "    </div>";
                     echo "    <div class='buttons' style='display:flex;align-items:center;justify-content:start;gap:3%;'>";
-                    echo "        <a href='articles.php' style='cursor:pointer;text-align:center;font-size:19px;text-decoration:none;color:white;background:red;width:70px;padding:7px;border-radius:7px;'>Cancel</a>";
-                    echo "        <button type='submit' style=' cursor:pointer;text-align:center;font-size:19px;text-decoration:none;color:white;background:#F78604;width:80px;border:none;padding:7px;border-radius:7px;' >Submit</button>";
+                    echo "        <a href='Articles.php' style='cursor:pointer;text-align:center;font-size:19px;text-decoration:none;color:white;background:red;width:70px;padding:7px;border-radius:7px;'>Cancel</a>";
+                    echo "        <input type='submit' style=' cursor:pointer;text-align:center;font-size:19px;text-decoration:none;color:white;background:#F78604;width:80px;border:none;padding:7px;border-radius:7px;' value='Submit' />";
                     echo "    </div>";
                     echo "</form> ";
                 }

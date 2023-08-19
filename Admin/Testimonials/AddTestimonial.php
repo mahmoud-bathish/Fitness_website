@@ -8,6 +8,6 @@ if(isset($_POST["pictureUrl"]) && isset($_POST["comment"]) && $_POST["pictureUrl
     mysqli_query($con, $query);
     header("location:Testimonials.php");
 }else{
-    header("location:AddTestimonial.html");
+    header("location:AddTestimonialForm.php");
 }
 ?>

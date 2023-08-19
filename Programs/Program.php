@@ -1,10 +1,18 @@
+<?php
+     session_start();
+
+     if ($_SESSION['isLoggedIn'] != 1) {
+     header("location:../Authentication/Login.html");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program</title>
-    <link rel="stylesheet" href="../home/Style/index.css">
+    <link rel="stylesheet" href="../Shared_Style/Header.css">
+    <link rel="stylesheet" href="../Home/Style/Home.css">
 
     <style>
         body{
@@ -34,13 +42,14 @@
             display:flex;
             align-items:center;
             justify-content:center;
-            margin-top:20px;
+            margin-top:70px;
         }
         .days-container{
             width:70%;
+            height:100vh;
             display:flex;
-            align-items:center;
-            justify-content:start;
+            align-items:start;
+            justify-content:center;
             flex-wrap:wrap;
             gap:15px;
         }
@@ -54,63 +63,57 @@
             font-size:22px;
             font-weight:bold;
             color:#fff;
+            border-radius:10px;
         }
         .days-container div a{
             text-decoration:none;
             color:#fff;
+            width:100%;
+            height:100%;
+            text-align:center;
+            line-height:60px;
         }
     </style>
 </head>
 <body>
     <header>
           <nav class="container">
-              <a href="" class="logo">Fit<span style="color:#F78604">ness</span></a>
+              <a href="../Home/Home.php" class="logo">Fit<span style="color:#F78604">ness</span></a>
               <div class="links">
                   <ul>
-                      <li><a href="../home/home.php" class="nav-link">Home</a></li>
-                      <li><a href="./programs.php" class="nav-link">Programs</a></li>
-                      <li><a href="./BMICalculator.php" class="nav-link">BMICalculator</a></li>
+                      <li><a href="../Home/Home.php" class="nav-link">Home</a></li>
+                      <li><a href="./Programs.php" class="nav-link">Programs</a></li>
+                      <li><a href="../BMICalculator/BMICalculator.php" class="nav-link">BMICalculator</a></li>
                   </ul>
-                  <button href="" class="btn">Login</button>
+                  <?php
+                    if (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] == 1) {
+                      echo "<a href='../Authentication/Logout.php' class='btn'>Logout</a>";  
+                    } else {
+                        echo "<a href='../Authentication/Login.html' class='btn'>Login</a>";
+                    }
+                  ?>
               </div>
           </nav>
     </header>
-    <div class="program-container" style="height:50vh;width:100%;">
-        <div class="program-img-container" style="width:100%;height:50%;position:absolute;"></div>
-        <div class="program-overlay" style="width:100%;height:50%;position:absolute;background:rgba(0,0,0,0.5);"></div>
+    <div class="program-container" style="height:100vh;width:100%;">
+        <div class="program-img-container" style="width:100%;height:100%;position:absolute;"></div>
+        <div class="program-overlay" style="width:100%;height:100%;position:absolute;background:rgba(0,0,0,0.5);"></div>
     </div>
-    <div class="subscribee" >
-        <h2>Subscribe Now</h2>
-    </div>
-    <div class="days-section">
-        <div class="days-container">
-            <?php
-                require_once '../Connection/connection.php';
-                $query = "SELECT
-                pd.Id AS ProgramDetailsId,
-                p.ProgramName,
-                p.Description AS ProgramDescription,
-                p.Price,
-                w.Name AS WorkoutName,
-                w.GifUrl,
-                w.Duration,
-                w.Day
-            FROM
-                ProgramDetails pd
-            JOIN
-                Program p ON pd.ProgramId = p.ProgramId
-            JOIN
-                Workout w ON pd.WorkoutId = w.WorkoutId
+    <?php
+    echo "<div class='days-section'>";
+    echo "    <div class='days-container'>";
+    require_once '../Connection/connection.php';
+    $programId = $_GET["ProgramId"];
+    $query = "SELECT * FROM Workout 
             WHERE
-            pd.Id = '3';
-            ";
-
-                $result = mysqli_query($con,$query);
-                if(mysqli_num_rows($result) > 0){
-                    while($row = mysqli_fetch_assoc($result)){
-                        echo "<div><a href='DayWorkout.php?Id=" . $row["ProgramDetailsId"] . "&Day=" . $row["Day"] . "'>" . $row["Day"] . "</a></div>";
-                    }
+                ProgramId = '$programId';";
+            
+            $result = mysqli_query($con, $query);
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo "<div><a href='DayWorkout.php?Id=" . $row["ProgramId"] . "&Day=" . $row["Day"] . "'>" . $row["Day"] . "</a></div>";
                 }
+            }
             ?>
 
         </div>

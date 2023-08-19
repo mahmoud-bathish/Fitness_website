@@ -3,8 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Login Page</title>
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="../home/Style/index.css">
+    <link rel="stylesheet" href="Login.css">
+    <link rel="stylesheet" href="../Home/Style/Home.css">
+
+
     <style>
       body{
           margin: 0;
@@ -17,35 +19,34 @@
   </head>
   <body>
     <header>
-      <nav class="container">
-          <a href="" class="logo">Fit<span style="color:#F78604">ness</span></a>
+      <nav class="container" style="display:flex;color:#fff;">
+          <a style="margin-top:7px;" href="" class="logo">Fit<span style="color:#F78604">ness</span></a>
           <div class="links">
-              <ul>
-                  <li><a href="./home.php" class="nav-link">Home</a></li>
-                  <li><a href="#Programs" class="nav-link">Programs</a></li>
-                  <li><a href="./BMICalculator.php" class="nav-link">BMICalculator</a></li>
+              <ul style="list-style: none; display:flex;align-items:center;justify-content: center;margin-top:10px;">
+                <li style="padding:0 5px;" ><a style="color:#fff;" href="../Home/Home.php" class="nav-link">Home</a></li>
+                <li style="padding:0 5px;"><a  style="color:#fff;"href="../Programs/Programs.php" class="nav-link">Programs</a></li>
+                <li style="padding:0 5px;"><a  style="color:#fff;"href="../BMICalculator/BMICalculator.php" class="nav-link">BMICalculator</a></li>
               </ul>
-              <button href="" class="btn">Login</button>
           </div>
       </nav>
   </header>
 
     <div class="center">
       <h1>Login</h1>
-      <form method="post" action="login.php">
+      <form method="post" action="Login.php">
         <div class="txt_field">
-          <input type="text" name="email" required>
+          <input id="email" type="text" name="email" required>
           <span></span>
-          <label>Email</label>
+          <label for="email">Email</label>
         </div>
         <div class="txt_field">
-          <input type="password" name="password" required>
+          <input id="pass" placeholder="Password" type="password" name="password" required>
           <span></span>
-          <label>Password</label>
+          <label for="pass">Password</label>
         </div>
         <input type="submit" value="Login" style="background-color: #F78604;">
         <div class="signup_link" >
-          Not a member? <a href="./register.html" style="color: #F78604;">Signup</a>
+          Not a member? <a href="./Register.html" style="color: #F78604;">Signup</a>
         </div>
       </form>
     </div>

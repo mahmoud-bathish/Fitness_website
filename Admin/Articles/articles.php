@@ -1,14 +1,25 @@
+<?php
+session_start();
+if ($_SESSION['isAdmin'] != 1) {
+header("location:../../Authentication/Login.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./AdminPageStyle/style.css">
     <title>Admin Page</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <style>
         body {
             margin: 0;
             padding: 0;
+            font-family:"Inter","Sans-serif";
         }
 
         .container {
@@ -19,6 +30,8 @@
             width: calc(100% / 7);
             height: 100vh;
             background:#eee;
+            border-bottom-right-radius: 50px;
+
         }
 
         .articles-box {
@@ -29,6 +42,7 @@
         .side-bar .admin-img{
             height: 15%;
             width: 100%;
+            border-bottom:1px solid black;
         }
 
         .side-bar .admin-navigation {
@@ -104,7 +118,7 @@
             font-weight: bold;
             transition: 0.3s;
         }
-        .articles {
+.articles {
     position: relative;
 
   }
@@ -141,21 +155,27 @@
     padding: 20px;
     border-top: 1px solid #e6e6e7;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
+    gap:2%;
     align-items: center;
   }
   .articles .box .info a {
     color: var(--main-color);
     font-weight: bold;
   }
-
+.head {
+    background:yellow;
+    width:100%;
+    height:15%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eee;
+}
 
     </style>
 </head>
 <body>
-    <header>
-
-    </header>
     <main>
         <div class="container">
             <div class="side-bar">
@@ -166,49 +186,60 @@
                 </div>
                 <div class="admin-navigation">
                     <div class="choices">
-                        <div class="programs-choice">
-                            <a href="../Programs/programs.php">Programs</a>
+                        <div>
+                            <a href="../Programs/Programs.php">Programs</a>
                         </div>
-                        <div class="articles-choice active">
-                            <a href="./articles.php">Articles</a>
+                        <div class="active">
+                            <a href="./Articles.php">Articles</a>
                         </div>
-                        <div class="trainees-choice">
-                            <a href="../Trainees/trainees.php">Trainees</a>
+                        <div>
+                            <a href="../Users/Users.php">Users</a>
                         </div>
-                        <div class="users-choice">
-                            <a href="../Users/users.php">Users</a>
-                        </div>
-                        <div class="testimonials-choice ">
+                        <div>
                             <a href="../Testimonials/Testimonials.php">Testimonials</a>
                         </div>
-                        <div class="payment-choice">
-                            <a href="../Payment/payment.php">Payment</a>
+                        <div >
+                            <a href="../NewsLetter/NewsLetter.php">News Letter Emails</a>
+                        </div>
+                        <div >
+                            <a href="../Contact/contact.php">Contact Emails</a>
                         </div>
                         <div class="logout-choice">
-                            <a href="logout.php">Logout</a>
+                            <a href="../../Authentication/Logout.php">Logout</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="articles-box">
+            <div class='head'>
+                <h1>Articles</h1>
+            </div>
                 <div class="articles" id="articles">
-                  <div style="margin-top:50px;width:100%;display:flex;flex-wrap:wrap;gap:40px;justify-content:center;">
+                  <div style="width:calc(100% - 100px);display:flex;flex-wrap:wrap;gap:40px;justify-content:center;margin:20px 50px;">
                     <?php
                         require_once '../../Connection/connection.php';
                         
+                        if (isset($_GET["articleId"])) {
+                            $deleteId = $_GET["articleId"];
+                            $deleteQuery = "DELETE FROM articles WHERE articleID = '$deleteId';";
+                            mysqli_query($con, $deleteQuery);
+                        }
+
+
                         $query = "SELECT * FROM articles";
                         
                         $result = mysqli_query($con,$query);
                         if(mysqli_num_rows($result) > 0){
                           while($row = mysqli_fetch_assoc($result)){
                                 echo "<div class='box'>";
-                                echo" <img style='width:100%' src=" . $row["ImageUrl"] . " alt='' />";
+                                echo" <img style='width:100%' src=" . $row["ImageUrl"] . " alt='article_img' />";
                                 echo"<div class='content'>";
                                 echo "<h3>" . $row["Title"] . "</h3>";
                                 echo " <p style='-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical; overflow:hidden;'>" . $row["Description"] . "</p>";
                                 echo "</div>";
                                 echo "<div class='info'>";
-                                echo "<a style='text-decoration:none;background:#F78604;border-radius:7px;width:50px;padding:5px;text-align:center;color:#fff;' href='editArticle.php?articleID=" . $row["articleID"] . "'>Edit</a>";
+                                echo "<a style='text-decoration:none;background:red;border-radius:7px;width:50px;padding:5px;text-align:center;color:#fff;' href='?articleId=" . $row["articleID"] . "'>Delete</a>";
+                                echo "<a style='text-decoration:none;background:#F78604;border-radius:7px;width:50px;padding:5px;text-align:center;color:#fff;' href='EditArticle.php?articleID=" . $row["articleID"] . "'>Edit</a>";
                                 echo "</div>";
                                 echo "</div>";
                             }
@@ -216,7 +247,7 @@
                       ?>
                   </div>
                   <div style='width:100%;height:100px;display:flex;justify-content:center;align-items:center;'>
-                    <a style='padding:7px;background:#F78604;color:white;font-size:17px;text-align:center;text-decoration:none;border-radius:7px;width:70px;' href="AddArticle.html">Add</a>
+                    <a style='padding:5px;background:#F78604;color:white;font-size:19px;text-align:center;text-decoration:none;border-radius:7px;width:100px;height:50px;line-height:50px;' href="AddArticle.php">Add</a>
                   </div>
                 </div>
             </div>
