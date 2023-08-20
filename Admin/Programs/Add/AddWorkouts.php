@@ -108,8 +108,12 @@ header("location:../../Authentication/Login.html");
                     <input type="text" id="gifUrl" name="gifUrl" placeholder="Gif Url">
                 </div>
                 <div>
-                    <label for="duration">Duration</label>
-                    <input type="number" id="duration" name="duration" placeholder="Duration">
+                    <label for="sets">Sets</label>
+                    <input type="number" id="sets" name="sets" placeholder="Sets">
+                </div>
+                <div>
+                    <label for="repeat">Repeat</label>
+                    <input type="number" id="repeat" name="repeat" placeholder="Repeat">
                 </div>
                 <div>
                     <label for="day">Day</label>

@@ -184,6 +184,7 @@ header("location:../../Authentication/Login.html");
                         echo "</div>";
                         echo "<h3 class='title'>" .$row["ProgramName"]. "</h3>";
                         echo "<div class='description' style='-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical; overflow:hidden;height:60px;'>" .$row["Description"]. "</div>";
+                        echo "<h3 class='title'>" .$row["DaysNumber"]. " Days</h3>";
                         echo "    <div class='subscribe-btn' style='height:20%;display:flex;align-items:center;justify-content:center;gap: 5%;'><a href='./EditProgram.php?programId=".$row["ProgramId"]."' style='width:50px;text-align:center;text-decoration:none;color:white;background:blue;padding:7px;border-radius:5px;'>Edit</a>";
                         echo "<a href='?programId=".$row["ProgramId"]."' style='width:50px;text-align:center;text-decoration:none;color:white;background:blue;padding:7px;border-radius:5px;'>Delete</a></div>";
                         echo "</div>";

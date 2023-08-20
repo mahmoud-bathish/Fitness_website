@@ -96,8 +96,8 @@
                     <input type="text" id="iconUrl" name="IconUrl" placeholder="Icon Url">
                 </div>
                 <div>
-                    <label for="price">Price</label>
-                    <input type="number" id="price" name="Price" placeholder="Price">
+                    <label for="days">Number Of Days</label>
+                    <input type="number" id="days" name="days" placeholder="Number Of Days">
                 </div>
                 <div>
                     <label for="desc">Description</label>
