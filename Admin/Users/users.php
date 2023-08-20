@@ -40,8 +40,7 @@ header("location:../../Authentication/Login.html");
             <div class="side-bar">
                 <div class="admin-img">
                     <div class="image-container">
-                    <div class="logo">Fit<span style="color:#F78604">ness</span></div>
-
+                        <div class="logo">Fit<span style="color:#F78604">ness</span></div>
                     </div>
                 </div>
                 <div class="admin-navigation">
@@ -68,6 +67,10 @@ header("location:../../Authentication/Login.html");
                     </div>
                 </div>
             </div>
+
+
+
+
             <div class="content">
             <div class='head'>
                 <h1 style="width:70%;margin-left:20px;">Users</h1>

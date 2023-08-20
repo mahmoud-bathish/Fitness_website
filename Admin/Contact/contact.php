@@ -53,7 +53,7 @@ header("location:../../Authentication/Login.html");
                             <a href="../Articles/Articles.php">Articles</a>
                         </div>
                         <div>
-                            <a href="./Users.php">Users</a>
+                            <a href="../Users/Users.php">Users</a>
                         </div>
                         <div>
                             <a href="../Testimonials/Testimonials.php">Testimonials</a>
