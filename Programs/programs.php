@@ -60,7 +60,7 @@
                         echo "    <img style='border-radius:50%;width:70px;height:70px;' src='" .$row["IconUrl"]. "' >";
                         echo "</div>";
                         echo "<h3 class='title'>" .$row["ProgramName"]. "</h3>";
-                        echo "<div class='description' style='-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical; overflow:hidden; height:30%;'>" .$row["Description"]. "</div>";
+                        echo "<div class='description' style='-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical; overflow:hidden; height:60px;'>" .$row["Description"]. "</div>";
                         echo "<div class='subscribe-btn' style='height:20%;display:flex;align-items:center;justify-content:center;gap: 5%;'><a href='./Program?ProgramId=".$row["ProgramId"]."'  style='width:100px;text-align:center;text-decoration:none;color:white;background:#F78604;padding:7px;border-radius:5px;'>Start Now</a></div>";
                         echo "</div>";
                     }

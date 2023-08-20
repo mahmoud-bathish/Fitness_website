@@ -27,6 +27,11 @@
                   </ul>
                   <?php
                     session_start();
+                    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == 1) {
+                      echo "<a href='../Admin/Programs/Programs.php' style='margin-right:10px;' class='btn'>Dashboard</a>";  
+
+                    }
+                    
 
                     if (isset($_SESSION['isLoggedIn']) && $_SESSION['isLoggedIn'] == 1) {
                       echo "<a href='../Authentication/Logout.php' class='btn'>Logout</a>";  

@@ -155,7 +155,10 @@ header("location:../../Authentication/Login.html");
             </div>
             <div class="content">
             <div class='head'>
-                <h1>Programs</h1>
+                <h1 style="width:70%;margin-left:20px;">Programs</h1>
+                <div style="width:30%;text-align:end;padding-right:50px;">
+                    <a style='text-decoration:none;color:white;background:#F78604;padding:10px;border-radius:7px;' href="../../Home/Home.php">Go To Home</a>
+                </div>
             </div>
             <section style="width:100%;height:100%;">
             <div style="width:100%;height:100%;display:flex;justify-content:center;align-items:center;">
@@ -180,7 +183,7 @@ header("location:../../Authentication/Login.html");
                         echo "    <img style='border-radius:50%;width:70px;height:70px;' src='" .$row["IconUrl"]. "' >";
                         echo "</div>";
                         echo "<h3 class='title'>" .$row["ProgramName"]. "</h3>";
-                        echo "<div class='description' style='-webkit-line-clamp: 4;display: -webkit-box;-webkit-box-orient: vertical; overflow:hidden;height:30%;'>" .$row["Description"]. "</div>";
+                        echo "<div class='description' style='-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical; overflow:hidden;height:60px;'>" .$row["Description"]. "</div>";
                         echo "    <div class='subscribe-btn' style='height:20%;display:flex;align-items:center;justify-content:center;gap: 5%;'><a href='./EditProgram.php?programId=".$row["ProgramId"]."' style='width:50px;text-align:center;text-decoration:none;color:white;background:blue;padding:7px;border-radius:5px;'>Edit</a>";
                         echo "<a href='?programId=".$row["ProgramId"]."' style='width:50px;text-align:center;text-decoration:none;color:white;background:blue;padding:7px;border-radius:5px;'>Delete</a></div>";
                         echo "</div>";

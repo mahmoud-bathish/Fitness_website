@@ -78,7 +78,10 @@ header("location:../../Authentication/Login.html");
             </div>
             <div class="content">
             <div class='head'>
-                <h1>NewsLetter Subscribers</h1>
+                <h1 style="width:70%;margin-left:20px;">NewsLetter Subscribers</h1>
+                <div style="width:30%;text-align:end;padding-right:50px;">
+                    <a style='text-decoration:none;color:white;background:#F78604;padding:10px;border-radius:7px;' href="../../Home/Home.php">Go To Home</a>
+                </div>
             </div>
                 <div class="table" style="display:flex; justify-content:center;">
                     <table >

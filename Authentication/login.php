@@ -16,11 +16,12 @@ if(isset($_POST['email']) && isset($_POST['password']) && $_POST['password'] != 
         session_start();
         $_SESSION['isLoggedIn'] = 1;
         $_SESSION['name'] = $row["UserName"];
-        if($row['IsAdmin'] == 1){
+        if($row["IsAdmin"] == 1){
             $_SESSION['isAdmin'] = 1;
-            // header("location:../Admin/Programs/Programs.php");
+            header("location:../Admin/Programs/Programs.php");
+        }else{
+            header("location:../Programs/Programs.php");
         }
-        // header("location:../Programs/Programs.php");
     }
 }
 ?>

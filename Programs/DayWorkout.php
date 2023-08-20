@@ -4,7 +4,7 @@
      if ($_SESSION['isLoggedIn'] != 1) {
      header("location:../Authentication/Login.html");
     }
-?>]
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Program Days</title>
     <style>
-        body{
+
+        *,body{
             margin:0;
             padding:0;
         }
@@ -26,7 +27,7 @@
             height:2px;
             background:#eee;
         }
-        .duration{
+        .sets,.reps{
             font-size:15px;
             text-align:center;
         }
@@ -43,9 +44,11 @@
             align-items:start;
             justify-content:center;
             position:absolute;
+            
         }
         .workout-container{
             width:80%;
+            margin-top:20px;
         }
         .workout div{
             padding:30px 0;
@@ -74,7 +77,8 @@
             font-size:23px;
             font-weight:bold;
         }
-        .workout-title .duration{
+        .workout-title .sets,
+        .workout-title .reps{
             font-size:23px;
         }
         .img-container{
@@ -97,8 +101,13 @@
             border-radius:7px;
         }
     </style>
+          <!-- Fonts -->
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 </head>
-<body>
+<body style="font-family:'inter','sans-serif'">
     <div class="container">
         <div class="workout-container">
             <h1>Workout</h1>
@@ -106,7 +115,8 @@
                 <div class="gif">
                     Workout
                 </div>
-                <div class="duration">Duration</div>
+                <div class="sets">Sets</div>
+                <div class="reps">Repeat</div>
                 <div class="start-btn">
                     Start
                 </div>
@@ -132,7 +142,8 @@
                           echo "      <div class='gif'>";
                           echo "          <img style='width:70px;height:70px;' src='".$row["GifUrl"]."'>";
                           echo "      </div>";
-                          echo "      <div class='duration'><span>".$row["Duration"].":00</span></div>";
+                          echo "      <div class='sets'><span>".$row["Sets"]."</span></div>";
+                          echo "      <div class='reps'><span>".$row["Reps"]."</span></div>";
                           echo "      <div class='start-btn'>";
                           echo "          <button id='startBtn'>Start</button>";
                           echo "      </div>";

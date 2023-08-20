@@ -40,16 +40,14 @@
         .days-section{
             width:100%;
             display:flex;
-            align-items:center;
+            align-items:start;
             justify-content:center;
             margin-top:70px;
+            height:100vh;
         }
         .days-container{
             width:70%;
-            height:100vh;
             display:flex;
-            align-items:start;
-            justify-content:center;
             flex-wrap:wrap;
             gap:15px;
         }
@@ -104,18 +102,19 @@
     echo "    <div class='days-container'>";
     require_once '../Connection/connection.php';
     $programId = $_GET["ProgramId"];
-    $query = "SELECT * FROM Workout 
-            WHERE
-                ProgramId = '$programId';";
+    $query = "SELECT * FROM program WHERE ProgramId = '$programId';";
             
-            $result = mysqli_query($con, $query);
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<div><a href='DayWorkout.php?Id=" . $row["ProgramId"] . "&Day=" . $row["Day"] . "'>" . $row["Day"] . "</a></div>";
-                }
-            }
-            ?>
-
+    $result = mysqli_query($con, $query);
+    if (mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        $DaysNumber = $row["DaysNumber"];
+        $i = 1;
+        while ($i <= $DaysNumber) {
+            echo "<div><a href='DayWorkout.php?Id=" . $row["ProgramId"] . "&Day=Day ".$i."'>Day ".$i."</a></div>";
+            $i++;
+        }
+    }
+    ?>
         </div>
     </div>
 </body>

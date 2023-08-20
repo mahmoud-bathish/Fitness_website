@@ -212,7 +212,10 @@ header("location:../../Authentication/Login.html");
             </div>
             <div class="articles-box">
             <div class='head'>
-                <h1>Articles</h1>
+                <h1 style="width:70%;margin-left:20px;">Articles</h1>
+                <div style="width:30%;text-align:end;padding-right:50px;">
+                    <a style='text-decoration:none;color:white;background:#F78604;padding:10px;border-radius:7px;' href="../../Home/Home.php">Go To Home</a>
+                </div>
             </div>
                 <div class="articles" id="articles">
                   <div style="width:calc(100% - 100px);display:flex;flex-wrap:wrap;gap:40px;justify-content:center;margin:20px 50px;">
