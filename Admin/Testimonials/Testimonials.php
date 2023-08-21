@@ -83,12 +83,12 @@ header("location:../../Authentication/Login.html");
                     <table width="100%">
                     <tr>
                         <th>ID</th>
-                        <th>picture</th>
-                        <th>comment</th>
+                        <th>Picture</th>
+                        <th>Comment</th>
                         <th>Delete</th>
                     </tr>
                     <?php
-require_once '../../Connection/connection.php';
+                        require_once '../../Connection/connection.php';
                         
                         if (isset($_GET['Id'])) {
                             $deleteId = $_GET['Id'];

@@ -85,12 +85,6 @@ header("location:../../Authentication/Login.html");
                     </tr>
                     <?php
                         require_once '../../Connection/connection.php';
-                        
-                        if (isset($_GET['Id'])) {
-                            $deleteId = $_GET['Id'];
-                            $deleteQuery = "DELETE FROM contacts WHERE Id = '$deleteId'";
-                            mysqli_query($con, $deleteQuery);
-                        }
 
                         $query = "SELECT * FROM contacts";
 

@@ -7,14 +7,13 @@ if(isset($_POST['name'])&& isset($_POST['email']) && isset($_POST['password'])
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $query = "INSERT INTO users (UserName, Email, Password) VALUES ($name, $email, $password)";
+    $query = "INSERT INTO users (UserName, Email, Password , IsAdmin) VALUES ('$name', '$email', '$password' , '0')";
 
     mysqli_query($con,$query);
     
     session_start();
     $_SESSION['isLoggedIn'] = 1;
-    $_SESSION['name'] = $name;
-    header("location:./Home/Home.php");
+    header("location:../Home/Home.php");
 }
 
 

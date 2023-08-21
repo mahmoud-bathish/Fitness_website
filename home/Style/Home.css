@@ -52,16 +52,9 @@ ul {
     transition: 0.3s;
 }
 
-.logo span {
-    color: var(--main-color-1);
-}
-
-
 .sub-heading {
-    color: var(--heading-color);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border-left: 3px solid var(--main-color-2);
     padding: 0.13rem 0.75rem;
     margin-bottom: 1rem;
     font-weight: 500;
@@ -69,7 +62,6 @@ ul {
 }
 
 .heading {
-    color: var(--heading-color);
     font-size: 3rem;
     font-family: "Abril Fatface", cursive;
     line-height: 1.3;
@@ -87,7 +79,7 @@ ul {
 
 .section {
     position: relative;
-    padding: var(--section-padding) 0;
+
 }
   /* Global */
   .section-margin{
@@ -137,14 +129,12 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color:#F78604;
   }
   .articles .box .info a {
-    color: var(--main-color);
     font-weight: bold;
   }
-  .articles .box .info i {
-    color: var(--main-color);
-  }
+  
   .articles .box:hover .info i {
     animation: moving-arrow 0.6s linear infinite;
   }
@@ -187,7 +177,7 @@ ul {
 }
 
 .contact-form {
-    background-color: #79807c;
+    background-color: red;
     border-radius: 20px;
     padding: 3.5rem 3rem;
     display: flex;
@@ -223,14 +213,10 @@ ul {
     width: 100%;
     border-radius: 7px;
     font-family: inherit;
-    color: var(--heading-color);
     font-weight: 500;
     font-size: 0.85rem;
     outline: none;
     transition: 0.3s;
-}
-
-.form-input::placeholder {
 }
 
 .form-input:hover {
@@ -281,11 +267,6 @@ footer .social-media {
     transition: 0.3s;
     font-size: 30px;
 }
-.social-link:hover {
-    color: var(--primary-color);
-
-}
-
 
 .btn {
     display: inline-block;
@@ -318,8 +299,6 @@ footer .social-media {
 }
 
 .footer {
-    padding-top: calc(var(--section-padding) / 2);
-    padding-bottom: calc(var(--section-padding) / 2);
     background-image: url("../assets/imgs/cat-01.jpg");
     background-size: cover;
     position: relative;
@@ -357,7 +336,6 @@ footer .social-media {
   }
   .footer .copyright span {
     font-weight: bold;
-    color: var(--primary-color);
   }
 
   .footer-container{
@@ -416,7 +394,6 @@ footer .social-media {
     padding: 10px 20px;
     border: 1px solid white;
     margin-left: 10px;
-    /* border-left: none; */
     text-transform: uppercase;
   }
   .subscribe form input[type="email"]:focus,
@@ -437,7 +414,6 @@ footer .social-media {
   /* Start Gallery */
 .gallery {
     position: relative;
-    background-color: var(--section-background);
   }
   .gallery .container {
     display: grid;

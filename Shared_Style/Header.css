@@ -409,7 +409,7 @@ footer .social-media {
     border: 1px solid white;
     background: none;
     padding: 20px 20px 20px 60px;
-    caret-color: red;
+    caret-color: #fff;
     width: calc(100% - 130px);
   }
   .subscribe form input[type="submit"] {
