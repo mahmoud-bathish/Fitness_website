@@ -10,7 +10,7 @@
     $repeat = mysqli_real_escape_string($con, $_POST["repeat"]);
     $Day = mysqli_real_escape_string($con, $_POST["day"]);
 
-    $query = "INSERT INTO workout (Name, GifUrl, Day,ProgramId,Sets,Repeat) VALUES ('$Name','$GifUrl','$Day','$programId', '$sets','$repeat');";
+    $query = "INSERT INTO workout (Name, GifUrl, Day,ProgramId,Sets,Reps) VALUES ('$Name','$GifUrl','$Day','$programId', '$sets','$repeat');";
 
     mysqli_query($con,$query);
     header("location:AddWorkouts.php?programId=".$programId."");

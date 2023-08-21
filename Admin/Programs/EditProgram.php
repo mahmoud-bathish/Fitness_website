@@ -81,7 +81,7 @@ header("location:../../Authentication/Login.html");
                                 echo "<td>" . $row["Name"] . "</td>";
                                 echo "<td><img style='border-radius:50%;width:70px;height:70px;' src='" . $row["GifUrl"] . "'/></td>";
                                 echo "<td>" . $row["Sets"] . "</td>";
-                                echo "<td>" . $row["Repeat"] . "</td>";
+                                echo "<td>" . $row["Reps"] . "</td>";
                                 echo "<td>" . $row["Day"] . "</td>";
                                 echo '<td><a style="text-decoration:none;color:white;background:red;border-radius:5px;padding:6px;" href="?programId=' . $row["WorkoutId"] . '">Delete</a></td>';
                                 echo "</tr>";

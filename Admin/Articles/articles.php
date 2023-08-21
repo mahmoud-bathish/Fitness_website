@@ -242,7 +242,6 @@ header("location:../../Authentication/Login.html");
                                 echo "</div>";
                                 echo "<div class='info'>";
                                 echo "<a style='text-decoration:none;background:red;border-radius:7px;width:50px;padding:5px;text-align:center;color:#fff;' href='?articleId=" . $row["articleID"] . "'>Delete</a>";
-                                echo "<a style='text-decoration:none;background:#F78604;border-radius:7px;width:50px;padding:5px;text-align:center;color:#fff;' href='EditArticle.php?articleID=" . $row["articleID"] . "'>Edit</a>";
                                 echo "</div>";
                                 echo "</div>";
                             }
