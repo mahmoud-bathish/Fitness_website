@@ -43,7 +43,7 @@
             align-items:start;
             justify-content:center;
             margin-top:70px;
-            height:100vh;
+            height:50vh;
         }
         .days-container{
             width:70%;
@@ -71,6 +71,33 @@
             text-align:center;
             line-height:60px;
         }
+        
+  header .container {
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+  }
+  header .container .links{
+    display:flex;
+    gap:10px;
+  }
+  header .container ul{
+    display:flex;
+
+  }
+  header .container ul li{
+    text-decoration:none;
+    padding: 0 10px;
+    line-height: 40px;
+    
+  }
+  header .container ul li a{
+    color:#fff;
+  }
+  header .container ul li a:hover{
+    color:#F78604;
+  }
+  
     </style>
 </head>
 <body>
@@ -93,9 +120,13 @@
               </div>
           </nav>
     </header>
-    <div class="program-container" style="height:100vh;width:100%;">
-        <div class="program-img-container" style="width:100%;height:100%;position:absolute;"></div>
-        <div class="program-overlay" style="width:100%;height:100%;position:absolute;background:rgba(0,0,0,0.5);"></div>
+    <div class="program-container" style="height:50vh;width:100%;">
+        <div class="program-img-container" style="width:100%;height:50%;position:absolute;">
+                    <!-- <div style="background:red;width:100%;height:100%;">
+                        hello
+                    </div> -->
+        </div>
+        <div class="program-overlay" style="width:100%;height:50%;position:absolute;background:rgba(0,0,0,0.5);"></div>
     </div>
     <?php
     echo "<div class='days-section'>";

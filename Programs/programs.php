@@ -17,6 +17,32 @@
             background: black;
             font-family:"Inter","Sans-serif";
         }
+        
+  header .container {
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+  }
+  header .container .links{
+    display:flex;
+    gap:10px;
+  }
+  header .container ul{
+    display:flex;
+
+  }
+  header .container ul li{
+    text-decoration:none;
+    padding: 0 10px;
+    line-height: 40px;
+    
+  }
+  header .container ul li a{
+    color:#fff;
+  }
+  header .container ul li a:hover{
+    color:#F78604;
+  }
     </style>
 </head>
 <body>
@@ -43,7 +69,7 @@
     </header>
     <section >
         <div style="display:flex;align-items:center;justify-content:center;flex-direction:column;">
-        <div style="display:flex;justify-content:center;flex-direction:column;align-items:center;gap:50px;margin-top: 50px;width:90vw;">
+        <div style="display:flex;justify-content:center;flex-direction:column;align-items:center;gap:50px;width:90vw;">
             <div class="title" style="color:white;text-align:center;">
                 <h2 style="font-size:30px;">Our Programs</h2>
                 <h1>BUILD YOUR BEST BODY</h1>
@@ -60,7 +86,7 @@
                         echo "    <img style='border-radius:50%;width:70px;height:70px;' src='" .$row["IconUrl"]. "' >";
                         echo "</div>";
                         echo "<h3 class='title'>" .$row["ProgramName"]. "</h3>";
-                        echo "<div class='description' style='-webkit-line-clamp: 3;display: -webkit-box;-webkit-box-orient: vertical; overflow:hidden; height:60px;'>" .$row["Description"]. "</div>";
+                        echo "<div class='description' style='-webkit-line-clamp: 2;display: -webkit-box;-webkit-box-orient: vertical; overflow:hidden; '>" .$row["Description"]. "</div>";
                         echo "<h3 class='title'>" .$row["DaysNumber"]. " Days</h3>";
                         echo "<div class='subscribe-btn' style='height:20%;display:flex;align-items:center;justify-content:center;gap: 5%;'><a href='./Program?ProgramId=".$row["ProgramId"]."'  style='width:100px;text-align:center;text-decoration:none;color:white;background:#F78604;padding:7px;border-radius:5px;'>Start Now</a></div>";
                         echo "</div>";

@@ -24,7 +24,31 @@
     background: #F78604;
   }
 
+  header .container {
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+  }
+  header .container .links{
+    display:flex;
+    gap:10px;
+  }
+  header .container ul{
+    display:flex;
 
+  }
+  header .container ul li{
+    text-decoration:none;
+    padding: 0 10px;
+    line-height: 40px;
+    
+  }
+  header .container ul li a{
+    color:#fff;
+  }
+  header .container ul li a:hover{
+    color:#F78604;
+  }
   
 </style>
   </head>
@@ -58,17 +82,17 @@
       <main>
       <section class="landing" style="position:relative;">
         <div class="container">
-            <div class="front">
+            <div class="front" style='height:80vh;'>
                 <div class="text">
                     <div style="font-size:38px;">SHAPE YOUR IDEAL BODY<br><span style="background-color:#F78604;">AT HOME</span></div>
                     <p>Get Out Of Your Comfort Zone And Make Yourself Stronger Than Your Excuses.</p>
-                    <button class="btn" style="padding: 22px 30px">SingUp</button>
+                    <a class="btn" href="../Authentication/Register.html" style="padding: 12px 30px">SingUp</a>
                 </div>
-                <!-- <div class="image">
+                <div class="image">
                     <div class="image-container">
                         <img src="../assets/imgs/coach-removebg-preview.png" alt="">
                     </div>
-                </div> -->
+                </div>
             </div>
           </div>
         </section>
@@ -119,7 +143,7 @@
                     $result = mysqli_query($con,$query);
                     if(mysqli_num_rows($result) > 0){
                         while($row = mysqli_fetch_assoc($result)){
-                            echo "  <div class='slide' style='background-color: rgba(255,255,255,0.6);box-shadow: 0 5px 20px 0.1px rgba(0,0,0,0.01);height:100%;";
+                            echo "  <div class='slide' style='background-color: #222427;box-shadow: 0 5px 20px 0.1px rgba(0,0,0,0.01);height:100%;";
                             echo "   backdrop-filter: blur(15px);border-radius:10px;opacity:0;width:100%;height:100%;position:absolute;display:flex;align-items:center;justify-content:center;'>";
                             echo "    <div style='display:flex;justify-content:center;flex-direction:column;align-items:center;width:100%;'>";
                             echo "      <div style='width:100%;display:flex;justify-content:center;margin-bottom:20px;'>";
@@ -139,7 +163,7 @@
         </section>
 
       <!-- Start Gallery -->
-        <section class="success-stories">
+        <!-- <section class="success-stories">
           <div class="container section-margin">
             <div class="gallery" id="gallery">
               <h2 class="main-title">Gallery</h2>
@@ -177,7 +201,7 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
       <!-- End Gallery -->
             
         <section class="newsletter">
@@ -219,12 +243,12 @@
                         </li>
                     </ul>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form" style='background:black;color:white;'>
                     <h3>Send a message</h3>
                     <form action="AddContactInfo.php" method='post'>
-                      <input type="text" class="form-input" name="Name" placeholder="Your Name" id="clientName" required>
-                      <input type="email" class="form-input" name="Email" placeholder="Your Email" id="clientEmail" required>
-                      <textarea class="form-input" name="message" placeholder="Message" id="clientMessage" required></textarea>
+                      <input style='background-color:white;' type="text" class="form-input" name="Name" placeholder="Your Name" id="clientName" required>
+                      <input style='background-color:white;' type="email" class="form-input" name="Email" placeholder="Your Email" id="clientEmail" required>
+                      <textarea style='background-color:white;' class="form-input" name="message" placeholder="Message" id="clientMessage" required></textarea>
                       <input type="submit" onclick="sendMail()" value="send" class="btn" style="width:100%;">
                     </form>
                 </div>

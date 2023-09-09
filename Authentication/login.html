@@ -15,20 +15,45 @@
           height: 100vh;
           overflow: hidden;
           }
+          
+  header .container {
+    display:flex;
+    padding:15px 0;
+  }
+  header .container .links{
+    display:flex;
+    gap:10px;
+  }
+  header .container ul{
+    display:flex;
+
+  }
+  header .container ul li{
+    text-decoration:none;
+    padding: 0 10px;
+    line-height: 40px;
+    
+  }
+  header .container ul li a{
+    color:#fff;
+  }
+  header .container ul li a:hover{
+    color:#F78604;
+  }
+  
       </style>
   </head>
   <body>
     <header>
-      <nav class="container" style="display:flex;color:#fff;">
-          <a style="margin-top:7px;" href="" class="logo">Fit<span style="color:#F78604">ness</span></a>
-          <div class="links">
-              <ul style="list-style: none; display:flex;align-items:center;justify-content: center;margin-top:10px;">
-                <li style="padding:0 5px;" ><a style="color:#fff;" href="../Home/Home.php" class="nav-link">Home</a></li>
-                <li style="padding:0 5px;"><a  style="color:#fff;"href="../Programs/Programs.php" class="nav-link">Programs</a></li>
-                <li style="padding:0 5px;"><a  style="color:#fff;"href="../BMICalculator/BMICalculator.php" class="nav-link">BMICalculator</a></li>
-              </ul>
-          </div>
-      </nav>
+      <nav class="container" >
+        <a style="margin-top:7px;" href="" class="logo">Fit<span style="color:#F78604">ness</span></a>
+        <div class="links">
+            <ul>
+              <li style="padding:0 5px;" ><a  href="../Home/Home.php" class="nav-link">Home</a></li>
+              <li style="padding:0 5px;"><a  href="../Programs/Programs.php" class="nav-link">Programs</a></li>
+              <li style="padding:0 5px;"><a  href="../BMICalculator/BMICalculator.php" class="nav-link">BMICalculator</a></li>
+            </ul>
+        </div>
   </header>
 
     <div class="center">

@@ -10,8 +10,36 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Work+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+  header .container {
+    display:flex;
+    justify-content:space-between;
+    padding:15px 0;
+  }
+  header .container .links{
+    display:flex;
+    gap:10px;
+  }
+  header .container ul{
+    display:flex;
 
+  }
+  header .container ul li{
+    text-decoration:none;
+    padding: 0 10px;
+    line-height: 40px;
+    
+  }
+  header .container ul li a{
+    color:#fff;
+  }
+  header .container ul li a:hover{
+    color:#F78604;
+  }
+  
+    </style>
 </head>
+
 <body style="background:black;">
 
 <header>
@@ -37,7 +65,7 @@
 </header>
 
 <div style='position:relative; '>
-<div class="parent"  style='position:absolute;width:100vw;'>
+<div class="parent"  style='height:80vh;width:97vw;position:absolute;'>
         <div class="container">
             <div class="content">
                 <h1 style="color:white;">Calculate <span style="font-weight:bold;color:#F78604;">Your BMI</span></h1>
@@ -63,7 +91,7 @@
         </div> 
     </div>
 
-    <div id="popupContainer" class="popup-container" style="display:none;justify-content:center;align-items:center;width:100%;z-index:10;background-color: rgba(0, 0, 0, 0.5);height:100vh;position:absolute;">
+    <div id="popupContainer" class="popup-container" style="display:none;justify-content:center;align-items:center;width:100%;z-index:10;background-color: rgba(0, 0, 0, 0.5);height:80vh;position:absolute;">
         <div class="popup-content" style='background-color: #F78604;color:white;border-radius:10px;width:50%;height:50%;'>
             <div style='height:10%;width:100%;text-align:end;padding-right:1%;'>
                 <span class="close-btn" onclick="hidePopup()"style='cursor:pointer;font-size:30px;text-align:center;width:100%;'>&times;</span>

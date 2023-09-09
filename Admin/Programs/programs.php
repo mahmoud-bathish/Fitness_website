@@ -130,8 +130,7 @@ header("location:../../Authentication/Login.html");
                 </div>
                 <div class="admin-navigation">
                     <div class="choices">
-
-                    <div class="active">
+                        <div class="active">
                             <a href="./Programs.php">Programs</a>
                         </div>
                         <div>
